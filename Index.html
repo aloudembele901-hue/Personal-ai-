@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal AI</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .app {
+      max-width: 700px;
+      margin: auto;
+      min-height: 100vh;
+      background: white;
+    }
+
+    header {
+      padding: 24px;
+      background: #111;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      opacity: 0.7;
+    }
+
+    #chat {
+      padding: 20px;
+      min-height: 55vh;
+    }
+
+    .message {
+      margin: 12px 0;
+      padding: 14px;
+      border-radius: 12px;
+      line-height: 1.5;
+    }
+
+    .ai {
+      background: #eee;
+    }
+
+    .user {
+      background: #111;
+      color: white;
+      text-align: right;
+    }
+
+    .input-area {
+      display: flex;
+      gap: 8px;
+      padding: 15px;
+      border-top: 1px solid #ddd;
+      position: sticky;
+      bottom: 0;
+      background: white;
+    }
+
+    input {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 14px 18px;
+      border: none;
+      border-radius: 10px;
+      background: #111;
+      color: white;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <header>
+    <h1>My Personal AI</h1>
+    <p>Learn • Think • Create • Build</p>
+  </header>
+
+  <div id="chat">
+    <div class="message ai">
+      Hello. I am your Personal AI system.<br><br>
+      My purpose is to help you learn, reason, create, and build.
+    </div>
+  </div>
+
+  <div class="input-area">
+    <input id="message" placeholder="Ask me something..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+</div>
+
+<script>
+function sendMessage() {
+  const input = document.getElementById("message");
+  const chat = document.getElementById("chat");
+
+  const text = input.value.trim();
+
+  if (!text) return;
+
+  const userMessage = document.createElement("div");
+  userMessage.className = "message user";
+  userMessage.textContent = text;
+
+  chat.appendChild(userMessage);
+
+  input.value = "";
+
+  const aiMessage = document.createElement("div");
+  aiMessage.className = "message ai";
+  aiMessage.textContent =
+    "I received your message. My AI brain will be connected next.";
+
+  chat.appendChild(aiMessage);
+
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>
